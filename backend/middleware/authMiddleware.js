@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 
-// Middleware to check if user is authenticated
+// Middleware to check if user is authenticated (User, Faculty, Admin)
 const protect = (req, res, next) => {
-    const token = req.headers.authorization?.split(" ")[1]; // Bearer token
+    const token = req.headers['authorization']?.split(" ")[1]; // Bearer token
 
     if (!token) {
         return res.status(401).json({ message: "You are not authorized to access this route" });
@@ -17,7 +17,7 @@ const protect = (req, res, next) => {
     }
 };
 
-// Middleware to check if user is admin
+// Middleware to check if user is admin (Admin only)
 const adminOnly = (req, res, next) => {
     if (req.user.role !== "admin") {
         return res.status(403).json({ message: "You are not authorized to access this route" });

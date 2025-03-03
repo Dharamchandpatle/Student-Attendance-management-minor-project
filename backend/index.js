@@ -4,7 +4,7 @@ const cors = require("cors");
 const db = require("./configue/db");
 const authRoutes = require("./routes/authRoutes");
 const classAttendanceRoutes = require("./routes/classAttendanceRoutes");
-const examAttendanceRoutes = require("./routes/examAttendanceRoutes");
+// const examAttendanceRoutes = require("./routes/examAttendanceRoutes");
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 // API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/class-attendance", classAttendanceRoutes); // Class attendance ke liye
-app.use("/api/exam-attendance", examAttendanceRoutes);   // Exam attendance ke liye
+// app.use("/api/exam-attendance", examAttendanceRoutes);   // Exam attendance ke liye
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
